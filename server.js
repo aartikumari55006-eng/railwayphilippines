@@ -295,23 +295,13 @@ app.get("/jobs/:id", (req, res) => {
     .btn-apply:hover{background:#f0f4f8;transform:scale(1.03)}
     .job-desc{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.09);margin-bottom:25px;line-height:1.7}
     .job-desc h2{font-size:1.2rem;margin-bottom:20px;color:#0038a8;border-bottom:2px solid #e8f0fe;padding-bottom:10px}
-    .schema-box{background:#1a1a2e;border-radius:10px;padding:20px;margin-bottom:25px}
-    .schema-box h3{color:#7ba7f7;margin-bottom:12px;font-size:1rem}
-    .schema-box pre{color:#a8d8a8;font-size:.78rem;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+
     .nav-jobs{display:flex;justify-content:space-between;margin-bottom:30px}
     .btn-nav{background:#0038a8;color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:.9rem}
     .btn-nav:hover{background:#002d8a}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px}
     footer a{color:#7ba7f7}
-    .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999;justify-content:center;align-items:center}
-    .modal-overlay.open{display:flex}
-    .modal{background:#fff;border-radius:12px;padding:35px;max-width:500px;width:90%;position:relative}
-    .modal h3{font-size:1.3rem;margin-bottom:20px;color:#0038a8}
-    .modal input,.modal textarea,.modal select{width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:6px;font-size:.95rem;font-family:inherit}
-    .modal textarea{height:100px;resize:vertical}
-    .modal-close{position:absolute;top:15px;right:18px;cursor:pointer;font-size:1.5rem;color:#999;background:none;border:none}
-    .submit-btn{background:#0038a8;color:#fff;padding:12px 30px;border:none;border-radius:6px;cursor:pointer;font-size:1rem;font-weight:600;width:100%}
-    .submit-btn:hover{background:#002d8a}
+
   </style>
 </head>
 <body>
@@ -345,17 +335,12 @@ app.get("/jobs/:id", (req, res) => {
   <div class="apply-box">
     <h3>🚀 Ready to Apply?</h3>
     <p>Join ${job.company} and start your remote career in the Philippines today!</p>
-    <button class="btn-apply" onclick="document.getElementById('applyModal').classList.add('open')">✅ Apply Now — It's Free</button>
+    <a class="btn-apply" href="https://remotejob09.job4intern.com/pages/job-application" target="_blank" rel="noopener">✅ Apply Now — It's Free</a>
   </div>
 
   <div class="job-desc">
     <h2>📋 Job Description</h2>
     <div>${descHtml}</div>
-  </div>
-
-  <div class="schema-box">
-    <h3>🔍 JSON-LD Schema (SEO)</h3>
-    <pre>${JSON.stringify(job.schema, null, 2)}</pre>
   </div>
 
   <div class="nav-jobs">
@@ -364,42 +349,10 @@ app.get("/jobs/:id", (req, res) => {
   </div>
 </div>
 
-<!-- Apply Modal -->
-<div class="modal-overlay" id="applyModal">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('applyModal').classList.remove('open')">✕</button>
-    <h3>Apply: ${job.company}</h3>
-    <div id="formArea">
-      <input type="text" placeholder="Full Name *" id="appName"/>
-      <input type="email" placeholder="Email Address *" id="appEmail"/>
-      <input type="tel" placeholder="Phone Number (Philippines)" id="appPhone"/>
-      <select id="appCity">
-        <option value="">Select City</option>
-        <option>Manila</option><option>Quezon City</option><option>Cebu City</option>
-        <option>Davao City</option><option>Makati</option><option>Taguig</option>
-        <option>Pasig</option><option>Iloilo City</option><option>Bacolod</option><option>Other</option>
-      </select>
-      <textarea placeholder="Brief introduction / cover letter (optional)"></textarea>
-      <button class="submit-btn" onclick="submitApp()">Submit Application 🚀</button>
-    </div>
-    <div id="successMsg" style="display:none;text-align:center;padding:20px">
-      <div style="font-size:3rem">🎉</div>
-      <h3 style="color:#28a745;margin:15px 0">Application Submitted!</h3>
-      <p>Thank you for applying to <strong>${job.company}</strong>.<br/>We'll get back to you within 3-5 business days.</p>
-    </div>
-  </div>
-</div>
+
 
 <footer><p>© 2025 ${SITE_NAME} | <a href="/sitemap.xml">Sitemap</a> | <a href="/robots.txt">robots.txt</a></p></footer>
-<script>
-function submitApp(){
-  var n=document.getElementById('appName').value;
-  var e=document.getElementById('appEmail').value;
-  if(!n||!e){alert('Please fill in your name and email.');return;}
-  document.getElementById('formArea').style.display='none';
-  document.getElementById('successMsg').style.display='block';
-}
-</script>
+
 </body>
 </html>`);
 });
