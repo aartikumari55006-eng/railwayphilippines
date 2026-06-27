@@ -13,7 +13,7 @@ const JOBS_PER_PAGE = 20;
 const SITEMAP_CHUNK = 1000;
 const TOTAL_SITEMAPS = Math.ceil(TOTAL_JOBS / SITEMAP_CHUNK);
 const SITE_NAME = "PhilippinesJobsHub.ph";
-const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const BASE_URL = process.env.BASE_URL || "https://frontendnodes-production.up.railway.app";
 
 app.use(compression());
 app.use(express.static("public"));
