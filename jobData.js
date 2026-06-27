@@ -1286,7 +1286,7 @@ function getJob(id) {
 
   const validDate = new Date(baseDate);
   validDate.setDate(validDate.getDate() + 90);
-  const validThrough = validDate.toISOString().split("T")[0];
+  const validThrough = "2026-12-31";
 
   const schema = {
     "@context": "https://schema.org/",
