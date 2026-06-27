@@ -1305,10 +1305,12 @@ function getJob(id) {
       ? {
           "@type": "Place",
           address: {
-            "@type": "PostalAddress",
-            addressLocality: city,
-            addressCountry: COUNTRY.addressCountry,
-          },
+  "@type": "PostalAddress",
+  streetAddress: "Remote Work",
+  addressLocality: city,
+  postalCode: "0000",
+  addressCountry: COUNTRY.addressCountry,
+},
         }
       : {
           "@type": "Place",
